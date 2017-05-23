@@ -8,14 +8,12 @@ import org.openqa.selenium.WebElement;
  * Created by auto on 15/05/17.
  */
 public class HomePage {
+
     WebDriver driver;
-
-    private WebElement homePage = driver.findElement(By.id("user_submit"));
-
+    WebElement homePage;
 
     public HomePage(WebDriver driver){
         this.driver = driver;
-
+        this.homePage = driver.findElement(By.id("user_submit"));
     }
-
 }
