@@ -38,7 +38,7 @@ public class LoginPageFactory extends LoadableComponent<LoginPageFactory>{
 
     public void isLoaded() throws Error{
         String url = driver.getCurrentUrl();
-        assertTrue("Not on the issue entry page" + url, url.contains("/login"));
+        assertTrue("Not on the issue entry page" + url, url.contains("decisionresourcesgroup"));
     }
 
     public HomePage userLogin(String userNameText, String passwordText) {
