@@ -4,17 +4,19 @@ import com.gap.atpractice.botstyletest.BotStyle;
 import com.gap.atpractice.pageobject.HomePage;
 import com.gap.atpractice.utils.TakeScreenshot;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.LoadableComponent;
 
+
+import static org.testng.AssertJUnit.assertTrue;
 
 /**
  * Created by auto on 25/05/17.
  */
-public class LoginPageFactory{
+public class LoginPageFactory extends LoadableComponent<LoginPageFactory>{
     private static WebDriver driver;
     BotStyle botDriver;
 
@@ -30,19 +32,13 @@ public class LoginPageFactory{
         this.botDriver = new BotStyle(driver);
     }
 
-    public void goToLogin(){
+    public void load(){
         driver.get("https://eisai.devweb01.fingertipformulary.com/login");
     }
 
-    public void pageLoad(){
-        JavascriptExecutor js;
-        js = (JavascriptExecutor) driver;
-        if(js.executeScript("return document.readyState").equals("complete")){
-            driver.findElement( By.id("user_submit") );
-            System.out.println("Page Loaded");
-        } else{
-            System.out.println("Page wasn't Loaded");
-        }
+    public void isLoaded() throws Error{
+        String url = driver.getCurrentUrl();
+        assertTrue("Not on the issue entry page" + url, url.contains("/login"));
     }
 
     public HomePage userLogin(String userNameText, String passwordText) {

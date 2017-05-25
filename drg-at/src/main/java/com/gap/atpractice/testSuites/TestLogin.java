@@ -26,8 +26,8 @@ public class TestLogin {
     @Parameters({"userNameText1","passwordText1"})
     @Test
     public void LoginSuccessful(String userNameText1, String passwordText1){
-        LoginPageFactory lp = new LoginPageFactory(driver);
-        lp.goToLogin();
+        LoginPageFactory lp = new LoginPageFactory(driver).get();
+        lp.load();
         lp.userLogin(userNameText1, passwordText1);
         driver.close();
     }
