@@ -1,6 +1,7 @@
 package com.gap.atpractice.testSuites;
 
-import com.gap.atpractice.pageobject.LoginPage;
+import com.gap.atpractice.botstyletest.BotStyle;
+import com.gap.atpractice.pagefactory.LoginPageFactory;
 import com.gap.atpractice.selenium.SeleniumBase;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,6 @@ import org.testng.annotations.Test;
  */
 @Test(groups = "loginAll")
 public class TestLogin {
-
     private static WebDriver driver;
 
     @BeforeClass
@@ -26,9 +26,9 @@ public class TestLogin {
     @Parameters({"userNameText1","passwordText1"})
     @Test
     public void LoginSuccessful(String userNameText1, String passwordText1){
-        LoginPage lp = new LoginPage(driver);
+        LoginPageFactory lp = new LoginPageFactory(driver);
         lp.goToLogin();
-        lp.userLogin(userNameText1,passwordText1);
+        lp.userLogin(userNameText1, passwordText1);
         driver.close();
     }
 }
