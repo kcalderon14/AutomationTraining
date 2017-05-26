@@ -15,10 +15,6 @@ public abstract class PageBase extends LoadableComponent<PageBase>{
     WebDriver driver;
     BotStyle botDriver;
 
-    @FindBy(id="UserName") private WebElement userName;
-    @FindBy(id="Password") private WebElement password;
-    @FindBy(xpath = "//input[@value = 'Log in']") private WebElement btn;
-
     String PRINCIPAL_URL = "https://eisai.devweb01.fingertipformulary.com";
     String URL_CONTAINS = "decisionresourcesgroup";
     String URL_CREATE_FORMULARY = "/publisher/new";
