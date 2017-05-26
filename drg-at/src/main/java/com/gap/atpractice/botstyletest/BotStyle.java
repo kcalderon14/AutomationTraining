@@ -1,5 +1,6 @@
 package com.gap.atpractice.botstyletest;
 
+import com.gap.atpractice.pageobject.PageBase;
 import com.google.common.base.Function;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by auto on 25/05/17.
  */
-public class BotStyle {
-    private WebDriver driver;
+public class BotStyle{
 
-    public BotStyle(WebDriver driver){
+    WebDriver driver;
+
+    public BotStyle(WebDriver driver) {
         this.driver = driver;
     }
 

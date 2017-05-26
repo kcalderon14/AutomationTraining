@@ -3,49 +3,47 @@ package com.gap.atpractice.pageobject;
 import com.gap.atpractice.botstyletest.BotStyle;
 import com.gap.atpractice.utils.TakeScreenshot;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
+
+import static org.testng.AssertJUnit.assertTrue;
 
 /**
- * Created by auto on 15/05/17.
+ * Created by auto on 25/05/17.
  */
-
-public class LoginPage{
-    private static WebDriver driver;
+public class LoginPage extends PageBase{
 
     //Web Elements
-    By userName = By.id("UserName");
-    By password = By.id("Password");
+    //This is as Page Factory
+    @FindBy(id="UserName") private WebElement userName;
+    @FindBy(id="Password") private WebElement password;
+    @FindBy(xpath = "//input[@value = 'Log in']") private WebElement btn;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-    public void goToLogin(){
-        driver.get("https://eisai.devweb01.fingertipformulary.com/login");
+        super(driver);
     }
 
-    public void pageLoad(){
-        JavascriptExecutor js;
-        js = (JavascriptExecutor) driver;
-        if(js.executeScript("return document.readyState").equals("complete")){
-            driver.findElement( By.id("user_submit") );
-            System.out.println("Page Loaded");
-        } else
-            {
-                System.out.println("Page wasn't Loaded");
-            }
+    public void load(){
+        driver.get(PRINCIPAL_URL);
+    }
+
+    public void isLoaded() throws Error{
+        String url = driver.getCurrentUrl();
+        assertTrue("Not on the issue entry page" + url, url.contains(URL_CONTAINS));
     }
 
     public HomePage userLogin(String userNameText, String passwordText) {
-        driver.findElement(userName).sendKeys(userNameText);
-        driver.findElement(password).sendKeys(passwordText);
-        driver.findElement(By.xpath("//input[@value = 'Log in']")).click();
+        botDriver.type(userName, userNameText);
+        botDriver.type(password, passwordText);
+        btn.click();
         System.out.println("Page Loaded to entry user and pass");
-        return new HomePage(driver);
+        return new HomePage(this.driver);
     }
 
-    public void validateLoginPage(){
+    public void takeScreenshot1() {
         driver.findElement(By.id("UserName")).isDisplayed();
         TakeScreenshot.takeScreenshot(driver, "./src/main/resources/screenshots/test.png");
     }
