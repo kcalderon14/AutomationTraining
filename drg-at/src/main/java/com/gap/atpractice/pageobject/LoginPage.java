@@ -42,8 +42,7 @@ public class LoginPage extends PageBase{
     }
 
     public void goToCreateFormulary(){
-        String create_formulary_page = PRINCIPAL_URL + URL_CREATE_FORMULARY;
-        driver.get(create_formulary_page);
+        driver.get(String.format("%s%s", PRINCIPAL_URL, URL_CREATE_FORMULARY));
     }
 
     public void takeScreenshot1() {
