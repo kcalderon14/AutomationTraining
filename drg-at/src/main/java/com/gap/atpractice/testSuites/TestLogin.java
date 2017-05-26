@@ -11,12 +11,11 @@ import org.testng.annotations.Test;
 @Test(groups = "loginAll")
 public class TestLogin extends TestSuitesBase{
 
-
     @Parameters({"userNameText1","passwordText1"})
     @Test
     public void LoginSuccessful(String userNameText1, String passwordText1){
         LoginPage lp = (LoginPage) new LoginPage(driver).get();
         lp.userLogin(userNameText1, passwordText1);
-        driver.close();
+        lp.goToCreateFormulary();
     }
 }

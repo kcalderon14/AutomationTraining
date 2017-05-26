@@ -1,18 +1,16 @@
 package com.gap.atpractice.pageobject;
 
-import com.gap.atpractice.botstyletest.BotStyle;
 import com.gap.atpractice.utils.TakeScreenshot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 
 import static org.testng.AssertJUnit.assertTrue;
 
 /**
  * Created by auto on 25/05/17.
+ * This class
  */
 public class LoginPage extends PageBase{
 
@@ -40,12 +38,16 @@ public class LoginPage extends PageBase{
         botDriver.type(password, passwordText);
         btn.click();
         System.out.println("Page Loaded to entry user and pass");
-        return new HomePage(this.driver);
+        return new HomePage(driver);
+    }
+
+    public void goToCreateFormulary(){
+        String create_formulary_page = PRINCIPAL_URL + URL_CREATE_FORMULARY;
+        driver.get(create_formulary_page);
     }
 
     public void takeScreenshot1() {
         driver.findElement(By.id("UserName")).isDisplayed();
         TakeScreenshot.takeScreenshot(driver, "./src/main/resources/screenshots/test.png");
     }
-
 }

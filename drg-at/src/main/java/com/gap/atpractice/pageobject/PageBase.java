@@ -2,6 +2,8 @@ package com.gap.atpractice.pageobject;
 
 import com.gap.atpractice.botstyletest.BotStyle;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
@@ -13,8 +15,13 @@ public abstract class PageBase extends LoadableComponent<PageBase>{
     WebDriver driver;
     BotStyle botDriver;
 
+    @FindBy(id="UserName") private WebElement userName;
+    @FindBy(id="Password") private WebElement password;
+    @FindBy(xpath = "//input[@value = 'Log in']") private WebElement btn;
+
     String PRINCIPAL_URL = "https://eisai.devweb01.fingertipformulary.com";
     String URL_CONTAINS = "decisionresourcesgroup";
+    String URL_CREATE_FORMULARY = "/publisher/new";
 
     public PageBase(WebDriver driver){
         this.driver = driver;
