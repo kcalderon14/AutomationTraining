@@ -3,6 +3,7 @@ package com.gap.atpractice.testSuites;
 import com.gap.atpractice.selenium.SeleniumBase;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -12,14 +13,14 @@ import java.util.concurrent.TimeUnit;
  */
 
 @Test(groups = "loginAll")
-public class TestSuitesBase {
+public class TestSuitesBase extends SeleniumBase{
 
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod(alwaysRun = true)
     public void initialize() {
-        SeleniumBase seleniumBase = new SeleniumBase();
-        driver = seleniumBase.setUp("Chrome");
+
+        driver = super.setUp("Chrome");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
