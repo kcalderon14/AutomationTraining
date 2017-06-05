@@ -3,7 +3,6 @@ package com.gap.atpractice.testngfactory;
 import com.gap.atpractice.testSuites.TestLoginSeveralTimes;
 import org.testng.annotations.Factory;
 
-
 /**
  * Created by auto on 01/06/17.
  */
