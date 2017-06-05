@@ -19,21 +19,21 @@ public class TestLogin extends TestSuitesBase{
         LoginPage lp = (LoginPage) new LoginPage(driver).get();
         lp.userLogin(userNameText1, passwordText1);
         lp.goToCreateFormulary();
-        driver.close();
+        closeBrowser();
     }
 
     @Test(groups = "getData", dataProvider = "getData", dataProviderClass = DataProviderLogin.class)
     public void LoginWithDP(String name, String password){
       LoginPage lp = (LoginPage) new LoginPage(driver).get();
       lp.userLogin(name, password);
-      driver.quit();
+      closeBrowser();
     }
 
     @Test(groups = "loginFromFile", dataProvider = "txtUsers", dataProviderClass = DataProviderLogin.class)
     public void LoginFromFile(String name, String password){
         LoginPage lp = (LoginPage) new LoginPage(driver).get();
         lp.userLogin(name, password);
-        driver.quit();
+        closeBrowser();
     }
 
 }
