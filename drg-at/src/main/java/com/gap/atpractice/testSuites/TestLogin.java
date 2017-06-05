@@ -5,13 +5,12 @@ import com.gap.atpractice.pageobject.LoginPage;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.awt.*;
 
 
 /**
  * Created by auto on 06/04/17.
  */
-@Test(groups = "loginAll")
+
 public class TestLogin extends TestSuitesBase{
 
    @Test(groups = "test001")

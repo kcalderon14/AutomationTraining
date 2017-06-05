@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -33,12 +34,19 @@ public class LoginPage extends PageBase{
         assertTrue("Not on the issue entry page" + url, url.contains(URL_CONTAINS));
     }
 
-    public HomePage userLogin(String userNameText, String passwordText) {
+    public HomePage userLoginAndValidateHomePage(String userNameText, String passwordText) {
         botDriver.type(userName, userNameText);
         botDriver.type(password, passwordText);
         btn.click();
         System.out.println("Page Loaded to entry user and pass");
         return new HomePage(driver);
+    }
+
+    public void userLogin(String userNameText, String passwordText) {
+        botDriver.type(userName, userNameText);
+        botDriver.type(password, passwordText);
+        btn.click();
+        Assert.assertEquals("Log In | DRG", driver.getTitle());
     }
 
     public void goToCreateFormulary(){

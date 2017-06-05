@@ -5,14 +5,15 @@
             <run>
                 <!--<include name="test001"/> -->
                 <!-- <include name="getData"/> -->
-                <include name="loginFromFile"/>
+                <!-- <include name="loginFromFile"/> -->
             </run>
         </groups>
  <!-- Paramenter for User and Password Login -->
         <parameter name="userNameText1" value="testdrg2@eisai.com" />
         <parameter name="passwordText1" value="Admin1" />
         <classes>
-            <class name="com.gap.atpractice.testSuites.TestLogin"/>
-        </classes>
-    </test>
-</suite>
+            <class name="com.gap.atpractice.testngfactory.TestFactory"/>
+            <!-- <class name="com.gap.atpractice.testSuites.TestLogin"/> -->
+             </classes>
+     </test>
+ </suite>

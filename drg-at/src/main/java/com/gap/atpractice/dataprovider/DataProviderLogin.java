@@ -28,7 +28,7 @@ public class DataProviderLogin {
 
     @DataProvider(name = "txtUsers")
     public Object[][] readFile()throws IOException {
-        File txtfile = new File("/home/auto/workspace/drg-at/src/main/resources/dataproviders/input");
+        File txtfile = new File("/home/auto/workspace/drg-at/src/main/resources/dataproviders/usertxtlist");
         TxtUtils txt = new TxtUtils();
         Object[][] returnObjArray=txt.readTxtFile(txtfile);
         return returnObjArray;
